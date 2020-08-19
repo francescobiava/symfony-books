@@ -1,0 +1,22 @@
+header {
+	height: 50px;
+	background-color: $secondary;
+
+	.menu {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		a {
+			margin: 0 50px;
+			color: white;
+
+			&.login-btn {
+				padding: 6px 15px;
+				background-color: $primary;
+				border-radius: 5px;
+			}
+		}
+	}
+}

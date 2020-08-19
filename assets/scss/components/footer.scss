@@ -1,0 +1,11 @@
+footer {
+	height: 50px;
+	background-color: $secondary;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.copyright {
+		color: white;
+	}
+}
