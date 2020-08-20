@@ -33,14 +33,14 @@ class Book
     private $publisher;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private $year;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $year;
 
     public function getId(): ?int
     {
@@ -83,18 +83,6 @@ class Book
         return $this;
     }
 
-    public function getYear(): ?\DateTimeInterface
-    {
-        return $this->year;
-    }
-
-    public function setYear(\DateTimeInterface $year): self
-    {
-        $this->year = $year;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -103,6 +91,18 @@ class Book
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getYear(): ?int
+    {
+        return $this->year;
+    }
+
+    public function setYear(int $year): self
+    {
+        $this->year = $year;
 
         return $this;
     }

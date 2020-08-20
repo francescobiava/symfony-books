@@ -15,8 +15,8 @@ class BookType extends AbstractType
             ->add('title')
             ->add('author')
             ->add('publisher')
-            ->add('year')
             ->add('description')
+            ->add('year')
         ;
     }
 

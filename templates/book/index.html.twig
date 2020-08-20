@@ -10,8 +10,8 @@
 				<th>Title</th>
 				<th>Author</th>
 				<th>Publisher</th>
-				<th>Year</th>
 				<th>Description</th>
+				<th>Year</th>
 				<th>actions</th>
 			</tr>
 		</thead>
@@ -22,8 +22,8 @@
 					<td>{{ book.title }}</td>
 					<td>{{ book.author }}</td>
 					<td>{{ book.publisher }}</td>
-					<td>{{ book.year ? book.year|date('Y-m-d') : '' }}</td>
 					<td>{{ book.description }}</td>
+					<td>{{ book.year }}</td>
 					<td>
 						<a href="{{ path('book_show', {'id': book.id}) }}">show</a>
 						<a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
