@@ -1,0 +1,65 @@
+.list-container {
+	height: calc(100vh - 100px);
+	padding: 25px 50px;
+	overflow: scroll;
+
+	h2 {
+		font-size: 3rem;
+		font-weight: 800;
+		text-align: center;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+
+	.create-btn {
+		padding: 10px 20px;
+		color: #fff;
+		background-color: $primary;
+		border-radius: 5px;
+	}
+
+	.book-list {
+		margin: 30px 0;
+
+		.book-block {
+			height: 100%;
+			margin: 20px 0;
+			padding: 20px;
+			border-radius: 10px;
+			background-color: rgba($secondary, 0.5);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			li {
+				margin-bottom: 5px;
+			}
+
+			strong {
+				color: $primary;
+			}
+		}
+
+		.actions {
+			margin-left: 50px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+
+			.show-btn {
+				padding: 10px 20px;
+				color: #fff;
+				background-color: $primary;
+				border-radius: 5px;
+				margin-bottom: 10px;
+			}
+
+			.edit-btn {
+				padding: 10px 20px;
+				color: #fff;
+				background-color: #008000;
+				border-radius: 5px;
+			}
+		}
+	}
+}

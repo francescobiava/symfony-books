@@ -1,0 +1,51 @@
+.show-container {
+	height: calc(100vh - 100px);
+	padding: 50px;
+	overflow: scroll;
+
+	h3 {
+		font-size: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.book {
+		margin: 50px 0;
+
+		li {
+			margin-bottom: 5px;
+		}
+
+		strong {
+			color: $primary;
+		}
+	}
+
+	.actions {
+		display: flex;
+		justify-content: space-around;
+
+		.btn {
+			padding: 10px 20px;
+			color: #fff;
+			border-radius: 5px;
+		}
+
+		.list-btn {
+			background-color: $primary;
+		}
+
+		.delete-btn {
+			font-size: 1rem;
+			background-color: #ff0000;
+			border: none;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.edit-btn {
+			background-color: #008000;
+		}
+	}
+}

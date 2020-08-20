@@ -1,0 +1,73 @@
+.new-container {
+	height: calc(100vh - 100px);
+	padding: 25px 50px;
+	overflow: scroll;
+
+	h3 {
+		font-size: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	form {
+		margin-top: 25px;
+		text-align: center;
+
+		div {
+			margin-bottom: 25px;
+
+			label {
+				display: block;
+				margin-bottom: 5px;
+			}
+
+			input {
+				appearance: none;
+				font-size: 1rem;
+				border: 2px solid $secondary;
+				width: 50%;
+				height: 35px;
+				padding: 0 10px;
+				border-radius: 10px;
+				&:focus {
+					outline: none;
+					border: 2px solid $primary;
+				}
+			}
+
+			textarea {
+				appearance: none;
+				font-size: 1rem;
+				border: 2px solid $secondary;
+				width: 50%;
+				height: 80px;
+				padding: 0 10px;
+				border-radius: 10px;
+				resize: none;
+				&:focus {
+					outline: none;
+					border: 2px solid $primary;
+				}
+			}
+		}
+
+		.save-btn {
+			padding: 10px 20px;
+			color: #fff;
+			background-color: #008000;
+			border-radius: 5px;
+			font-size: 1rem;
+			border: none;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.list-btn {
+		padding: 10px 20px;
+		color: #fff;
+		border-radius: 5px;
+		background-color: $primary;
+	}
+}

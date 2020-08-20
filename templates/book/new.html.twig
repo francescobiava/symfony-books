@@ -1,9 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-	<h1>Create new Book</h1>
-
-	{{ include('book/_form.html.twig') }}
-
-	<a href="{{ path('book_index') }}">back to list</a>
+	<div class="new-container">
+		<h3>Create new Book</h3>
+		{# {{ include('book/_form.html.twig') }} #}
+		<form name="book" method="post">
+			<div id="book">
+				<div>
+					<label for="book_title" class="required">Title</label>
+					<input type="text" id="book_title" name="book[title]" required="required" maxlength="255">
+				</div>
+				<div>
+					<label for="book_author" class="required">Author</label>
+					<input type="text" id="book_author" name="book[author]" required="required" maxlength="255">
+				</div>
+				<div>
+					<label for="book_publisher" class="required">Publisher</label>
+					<input type="text" id="book_publisher" name="book[publisher]" required="required" maxlength="255">
+				</div>
+				<div>
+					<label for="book_description">Description</label>
+					<textarea id="book_description" name="book[description]"></textarea>
+				</div>
+				<div>
+					<label for="book_year" class="required">Year</label>
+					<input type="number" min="1900" max="2020" id="book_year" name="book[year]" required="required">
+				</div>
+				<input type="hidden" id="book__token" name="book[_token]" value="oEGJCjoWfj7fhb4dVWjTHdg3lFsXo1DGmYFdJrC-Dqc">
+			</div>
+			<button class="save-btn">Save</button>
+		</form>
+		<a class='list-btn' href="{{ path('book_index') }}">back to list</a>
+	</div>
 {% endblock %}

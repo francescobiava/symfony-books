@@ -1,41 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-	<h1>Book index</h1>
-
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Publisher</th>
-				<th>Description</th>
-				<th>Year</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for book in books %}
-				<tr>
-					<td>{{ book.id }}</td>
-					<td>{{ book.title }}</td>
-					<td>{{ book.author }}</td>
-					<td>{{ book.publisher }}</td>
-					<td>{{ book.description }}</td>
-					<td>{{ book.year }}</td>
-					<td>
-						<a href="{{ path('book_show', {'id': book.id}) }}">show</a>
-						<a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="7">no records found</td>
-				</tr>
+	<div class="list-container">
+		<h2>Books</h2>
+		<a class='create-btn' href="{{ path('book_new') }}">Create new</a>
+		<ul class="book-list">
+			{% for book in books%}
+				<li class='book-block'>
+					<ul class="book">
+						<li class="title">
+							<strong>Title:</strong>
+							{{ book.title }}
+						</li>
+						<li class="author">
+							<strong>Author:</strong>
+							{{ book.author }}</li>
+						<li class="publisher">
+							<strong>Publisher:</strong>
+							{{ book.publisher }}</li>
+						<li class="year">
+							<strong>Year:</strong>
+							{{ book.year }}</li>
+						<li class="description">
+							<strong>Description:</strong>
+							{{ book.description }}</li>
+					</ul>
+					<div class="actions">
+						<a class='show-btn' href="{{ path('book_show', {'id': book.id}) }}">show</a>
+						<a class='edit-btn' href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+					</div>
+				</li>
 			{% endfor %}
-		</tbody>
-	</table>
+		</ul>
+	</div>
 
-	<a href="{{ path('book_new') }}">Create new</a>
 {% endblock %}

@@ -1,40 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-	<h1>Book</h1>
+	<div class="show-container">
+		<h3>{{ book.title }}</h3>
+		<ul class="book">
+			<li class="title">
+				<strong>Title:</strong>
+				{{ book.title }}</li>
+			<li class="author">
+				<strong>Author:</strong>
+				{{ book.author }}</li>
+			<li class="publisher">
+				<strong>Publisher:</strong>
+				{{ book.publisher }}</li>
+			<li class="year">
+				<strong>Year:</strong>
+				{{ book.year }}</li>
+			<li class="description">
+				<strong>Description:</strong>
+				{{ book.description }}</li>
+		</ul>
+		<div class="actions">
+			<a class='list-btn btn' href="{{ path('book_index') }}">back to list</a>
+			{{ include('book/_delete_form.html.twig') }}
+			<a class='edit-btn btn' href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+		</div>
 
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ book.id }}</td>
-			</tr>
-			<tr>
-				<th>Title</th>
-				<td>{{ book.title }}</td>
-			</tr>
-			<tr>
-				<th>Author</th>
-				<td>{{ book.author }}</td>
-			</tr>
-			<tr>
-				<th>Publisher</th>
-				<td>{{ book.publisher }}</td>
-			</tr>
-			<tr>
-				<th>Description</th>
-				<td>{{ book.description }}</td>
-			</tr>
-			<tr>
-				<th>Year</th>
-				<td>{{ book.year }}</td>
-			</tr>
-		</tbody>
-	</table>
 
-	<a href="{{ path('book_index') }}">back to list</a>
-
-	<a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
-
-	{{ include('book/_delete_form.html.twig') }}
-{% endblock %}
+	{% endblock %}
