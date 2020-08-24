@@ -14,7 +14,11 @@
 		<header>
 			<nav class="menu">
 				<a class='home-btn' href="{{ path('home') }}">Home</a>
-				<a class='login-btn' href="">Login</a>
+				{% if app.user %}
+					<a class='login-btn' href="{{ path('logout') }}">Logout</a>
+				{% else %}
+					<a class='login-btn' href="{{ path('login') }}">Login</a>
+				{% endif %}
 			</nav>
 		</header>
 		<main>

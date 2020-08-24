@@ -1,0 +1,50 @@
+.login-container {
+	height: calc(100vh - 100px);
+	padding: 25px 50px;
+	overflow: scroll;
+
+	h3 {
+		font-size: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	form {
+		margin-top: 25px;
+		text-align: center;
+
+		div {
+			margin-bottom: 25px;
+
+			label {
+				display: block;
+				margin-bottom: 5px;
+			}
+
+			input {
+				appearance: none;
+				font-size: 1rem;
+				border: 2px solid $secondary;
+				width: 50%;
+				height: 35px;
+				padding: 0 10px;
+				border-radius: 10px;
+				&:focus {
+					outline: none;
+					border: 2px solid $primary;
+				}
+			}
+		}
+		.login-btn {
+			padding: 10px 20px;
+			color: #fff;
+			background-color: $primary;
+			border-radius: 5px;
+			font-size: 1rem;
+			border: none;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
