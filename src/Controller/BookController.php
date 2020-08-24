@@ -20,6 +20,8 @@ class BookController extends AbstractController
      */
     public function index(BookRepository $bookRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('book/index.html.twig', [
             'books' => $bookRepository->findAll(),
         ]);
@@ -30,6 +32,8 @@ class BookController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'ONLY ADMIN ACCESS');
+
         $book = new Book();
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
@@ -53,6 +57,8 @@ class BookController extends AbstractController
      */
     public function show(Book $book): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('book/show.html.twig', [
             'book' => $book,
         ]);
@@ -63,6 +69,8 @@ class BookController extends AbstractController
      */
     public function edit(Request $request, Book $book): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'ONLY ADMIN ACCESS');
+
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
@@ -83,6 +91,8 @@ class BookController extends AbstractController
      */
     public function delete(Request $request, Book $book): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'ONLY ADMIN ACCESS');
+
         if ($this->isCsrfTokenValid('delete'.$book->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($book);

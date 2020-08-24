@@ -3,7 +3,9 @@
 {% block main %}
 	<div class="list-container">
 		<h2>Books</h2>
-		<a class='create-btn' href="{{ path('book_new') }}">Create new</a>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a class='create-btn' href="{{ path('book_new') }}">Create new</a>
+		{% endif %}
 		<ul class="book-list">
 			{% for book in books%}
 				<li class='book-block'>
@@ -27,7 +29,9 @@
 					</ul>
 					<div class="actions">
 						<a class='show-btn' href="{{ path('book_show', {'id': book.id}) }}">show</a>
-						<a class='edit-btn' href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+						{% if is_granted('ROLE_ADMIN') %}
+							<a class='edit-btn' href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+						{% endif %}
 					</div>
 				</li>
 			{% endfor %}
