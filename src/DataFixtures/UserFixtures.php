@@ -25,8 +25,13 @@ class UserFixtures extends Fixture
             $faker = Factory::create();
             $email = $faker->email;
             $password = 'password';
+            if (substr($email, 0, 1) === 'e') {
+                $role = ['ROLE_ADMIN'];
+            } else {
+                $role = [];
+            }
 
-            $user->setEmail($email)->setPassword($this->passwordEncoder->encodePassword($user, $password));
+            $user->setEmail($email)->setRoles($role)->setPassword($this->passwordEncoder->encodePassword($user, $password));
 
             $manager->persist($user);
         }
