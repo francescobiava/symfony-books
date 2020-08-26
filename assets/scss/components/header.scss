@@ -19,4 +19,12 @@ header {
 			}
 		}
 	}
+
+	@media screen and (max-width: 499px) {
+		.menu {
+			a {
+				margin: 0 25px;
+			}
+		}
+	}
 }

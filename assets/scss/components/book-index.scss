@@ -2,6 +2,7 @@
 	height: calc(100vh - 100px);
 	padding: 25px 50px;
 	overflow: scroll;
+	text-align: center;
 
 	h2 {
 		font-size: 3rem;
@@ -20,6 +21,7 @@
 
 	.book-list {
 		margin: 30px 0;
+		text-align: left;
 
 		.book-block {
 			height: 100%;
@@ -59,6 +61,25 @@
 				color: #fff;
 				background-color: #008000;
 				border-radius: 5px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 599px) {
+		.book-list {
+			.book-block {
+				flex-direction: column;
+			}
+
+			.actions {
+				width: 100%;
+				margin: 10px 0;
+				flex-direction: row;
+				justify-content: space-around;
+
+				.show-btn {
+					margin: 0;
+				}
 			}
 		}
 	}

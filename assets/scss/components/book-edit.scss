@@ -88,4 +88,27 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 599px) {
+		form[name="book"] {
+			div {
+				input,
+				textarea {
+					width: 80%;
+				}
+			}
+
+			.save-btn {
+				margin-bottom: 10px;
+			}
+		}
+
+		.actions {
+			flex-direction: column-reverse;
+
+			.delete-btn {
+				margin-bottom: 10px;
+			}
+		}
+	}
 }

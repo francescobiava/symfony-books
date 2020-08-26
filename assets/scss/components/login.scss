@@ -47,4 +47,14 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 449px) {
+		form {
+			div {
+				input {
+					width: 80%;
+				}
+			}
+		}
+	}
 }

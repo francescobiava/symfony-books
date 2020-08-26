@@ -72,4 +72,21 @@
 		border-radius: 5px;
 		background-color: $primary;
 	}
+
+	@media screen and (max-width: 599px) {
+		text-align: center;
+
+		form {
+			div {
+				input,
+				textarea {
+					width: 80%;
+				}
+			}
+		}
+
+		.list-btn {
+			margin-top: 10px;
+		}
+	}
 }

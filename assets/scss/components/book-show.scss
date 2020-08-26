@@ -48,4 +48,15 @@
 			background-color: #008000;
 		}
 	}
+
+	@media screen and (max-width: 499px) {
+		.actions {
+			flex-direction: column-reverse;
+			align-items: center;
+
+			.btn {
+				margin-bottom: 10px;
+			}
+		}
+	}
 }
