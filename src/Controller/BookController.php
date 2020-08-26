@@ -6,12 +6,14 @@ use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/book")
+ * @IsGranted("ROLE_USER")
  */
 class BookController extends AbstractController
 {
@@ -20,8 +22,6 @@ class BookController extends AbstractController
      */
     public function index(BookRepository $bookRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-
         return $this->render('book/index.html.twig', [
             'books' => $bookRepository->findAll(),
         ]);
@@ -29,11 +29,10 @@ class BookController extends AbstractController
 
     /**
      * @Route("/new", name="book_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
-        // $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'ONLY ADMIN ACCESS');
-
         $book = new Book();
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
@@ -57,8 +56,6 @@ class BookController extends AbstractController
      */
     public function show(Book $book): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-
         return $this->render('book/show.html.twig', [
             'book' => $book,
         ]);
@@ -66,11 +63,10 @@ class BookController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Book $book): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'ONLY ADMIN ACCESS');
-
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
@@ -88,6 +84,7 @@ class BookController extends AbstractController
 
     /**
      * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Book $book): Response
     {
