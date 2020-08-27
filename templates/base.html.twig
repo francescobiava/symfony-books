@@ -13,7 +13,10 @@
 	<body>
 		<header>
 			<nav class="menu">
-				<a class='home-btn' href="{{ path('home') }}">Home</a>
+				<div>
+					<a class='home-btn' href="{{ path('home') }}">Home</a>
+					<a class="list-btn" href="{{ path('book_index') }}">Book list</a>
+				</div>
 				{% if app.user %}
 					<a class='login-btn' href="{{ path('logout') }}">Logout</a>
 				{% else %}
