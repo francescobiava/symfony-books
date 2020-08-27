@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/", name="book_index", methods={"GET"})
+     * @Route("/", name="app_book_index", methods={"GET"})
      */
     public function index(BookRepository $bookRepository): Response
     {
@@ -28,7 +28,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="book_new", methods={"GET","POST"})
+     * @Route("/new", name="app_book_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
@@ -42,7 +42,7 @@ class BookController extends AbstractController
             $entityManager->persist($book);
             $entityManager->flush();
 
-            return $this->redirectToRoute('book_index');
+            return $this->redirectToRoute('app_book_index');
         }
 
         return $this->render('book/new.html.twig', [
@@ -52,7 +52,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_show", methods={"GET"})
+     * @Route("/{id}", name="app_book_show", methods={"GET"})
      */
     public function show(Book $book): Response
     {
@@ -62,7 +62,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="app_book_edit", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Book $book): Response
@@ -73,7 +73,7 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('book_index');
+            return $this->redirectToRoute('app_book_index');
         }
 
         return $this->render('book/edit.html.twig', [
@@ -83,7 +83,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @Route("/{id}", name="app_book_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Book $book): Response
@@ -96,6 +96,6 @@ class BookController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('book_index');
+        return $this->redirectToRoute('app_book_index');
     }
 }

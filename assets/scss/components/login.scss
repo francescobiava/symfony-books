@@ -49,6 +49,17 @@
 		}
 	}
 
+	.register-link {
+		display: block;
+		text-align: center;
+		margin-top: 25px;
+		font-size: 1rem;
+		color: $primary;
+		&:hover {
+			color: $secondary;
+		}
+	}
+
 	@media screen and (max-width: 449px) {
 		form {
 			div {

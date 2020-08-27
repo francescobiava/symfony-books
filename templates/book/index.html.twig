@@ -4,7 +4,7 @@
 	<div class="list-container">
 		<h2>Books</h2>
 		{% if is_granted('ROLE_ADMIN') %}
-			<a class='create-btn' href="{{ path('book_new') }}">Create new</a>
+			<a class='create-btn' href="{{ path('app_book_new') }}">Create new</a>
 		{% endif %}
 		<ul class="book-list">
 			{% for book in books%}
@@ -28,9 +28,9 @@
 							{{ book.description }}</li>
 					</ul>
 					<div class="actions">
-						<a class='show-btn' href="{{ path('book_show', {'id': book.id}) }}">show</a>
+						<a class='show-btn' href="{{ path('app_book_show', {'id': book.id}) }}">Show</a>
 						{% if is_granted('ROLE_ADMIN') %}
-							<a class='edit-btn' href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+							<a class='edit-btn' href="{{ path('app_book_edit', {'id': book.id}) }}">Edit</a>
 						{% endif %}
 					</div>
 				</li>
